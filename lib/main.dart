@@ -28,7 +28,30 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ListApp extends StatelessWidget {
+class ListApp extends StatefulWidget {
+  @override
+  _ListAppState createState() => _ListAppState();
+}
+
+class _ListAppState extends State<ListApp> {
+  BannerAd banner;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final adState = Provider.of<AdState>(context);
+    adState.initialization.then((status) {
+      setState(() {
+        banner = BannerAd(
+          adUnitId: adState.bannerAdUnitId,
+          size: AdSize.banner,
+          request: AdRequest(),
+          listener: adState.adListener,
+        )..load();
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +90,12 @@ class ListApp extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 50),
+            banner == null
+                ? SizedBox(height: 50)
+                : Container(
+                    height: 50,
+                    child: AdWidget(ad: banner),
+                  ),
           ],
         ));
   }
