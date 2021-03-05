@@ -11,7 +11,6 @@ void main() {
     value: adState,
     builder: (context, child) => MyApp(),
   ));
-  // runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -36,14 +35,39 @@ class ListApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('List App'),
         ),
-        body: ListView(
+        body: Column(
           children: [
-            ListTile(leading: Text('Haha')),
-            ListTile(leading: Text('Haha')),
-            ListTile(leading: Text('Haha')),
-            ListTile(leading: Text('Haha')),
-            ListTile(leading: Text('Haha')),
-            ListTile(leading: Text('Haha')),
+            Expanded(
+              child: ListView(
+                children: [
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                  ListTile(leading: Text('Haha')),
+                ],
+              ),
+            ),
+            SizedBox(height: 50),
           ],
         ));
   }
